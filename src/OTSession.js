@@ -70,7 +70,7 @@ export default class OTSession extends Component {
   }
 
   render() {
-    return <React.Fragment>this.props.children</React.Fragment>;
+    return <React.Fragment>{this.props.children}</React.Fragment>;
   }
 }
 
