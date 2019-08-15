@@ -20,7 +20,7 @@ export default function OTStreams(props, context) {
       : child))
     : null;
 
-  return <div>{childrenWithContextWrapper}</div>;
+  return <React.Fragment>{childrenWithContextWrapper}</React.Fragment>;
 }
 
 OTStreams.propTypes = {
