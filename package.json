@@ -1,6 +1,6 @@
 {
   "name": "skiller-whale-opentok-react",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Modified React components for OpenTok.js",
   "main": "dist/index.js",
   "scripts": {
