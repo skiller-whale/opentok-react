@@ -51,16 +51,12 @@ export default class OTSubscriber extends Component {
       return;
     }
 
-    const container = document.createElement('div');
-    container.setAttribute('class', 'OTSubscriberContainer');
-    this.node.appendChild(container);
-
     this.subscriberId = uuid();
     const { subscriberId } = this;
 
     const subscriber = this.state.session.subscribe(
       this.state.stream,
-      container,
+      this.node,
       this.props.properties,
       (err) => {
         if (subscriberId !== this.subscriberId) {
@@ -106,7 +102,7 @@ export default class OTSubscriber extends Component {
   }
 
   render() {
-    return <div ref={(node) => { this.node = node; }} />;
+    return <div className="OTSubscriberContainer" ref={(node) => { this.node = node; }} />;
   }
 }
 

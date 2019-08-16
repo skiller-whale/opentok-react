@@ -108,13 +108,6 @@ export default class OTPublisher extends Component {
     }
 
     const properties = this.props.properties || {};
-    let container;
-
-    if (properties.insertDefaultUI !== false) {
-      container = document.createElement('div');
-      container.setAttribute('class', 'OTPublisherContainer');
-      this.node.appendChild(container);
-    }
 
     this.publisherId = uuid();
     const { publisherId } = this;
@@ -130,7 +123,7 @@ export default class OTPublisher extends Component {
       }
     });
 
-    const publisher = OT.initPublisher(container, properties, (err) => {
+    const publisher = OT.initPublisher(this.node, properties, (err) => {
       if (publisherId !== this.publisherId) {
         // Either this publisher has been recreated or the
         // component unmounted so don't invoke any callbacks
@@ -170,7 +163,7 @@ export default class OTPublisher extends Component {
   }
 
   render() {
-    return <div ref={(node) => { this.node = node; }} />;
+    return <div className="OTPublisherContainer" ref={(node) => { this.node = node; }} />;
   }
 }
 
